@@ -1,0 +1,29 @@
+Introduction to Spring Boot!
+
+Lab Setup:
+1.	Spring Tool Suite 4 - https://spring.io/tools
+2. 	JDK - https://www.oracle.com/java/technologies/javase-jdk13-downloads.html
+3. 	Setup JAVA_HOME environment variable -> it points to your JDK home!
+4.	Update PATH environment variable to add new entry -> %JAVA_HOME%/bin
+5.	If you are using open internet, then need not to setup Apache Maven!
+6.	If you are in cognizant network, then  you will need to setup Apache Maven Binary and 		configure it to use proxy credentials!
+7. 	Apache Maven Binary - http://maven.apache.org/download.cgi
+8.	Setup new environment variable -> MAVEN_HOME
+9.	Update PATH environment variable to add new entry -> %MAVEN_HOME%/bin
+10.	POSTMAN -> Rest TEST Client -> https://www.postman.com/
+
+11.	Source code repository -> https://github.com/prafful/springboot_april_2020
+
+12.	Hello World in Spring Boot!
+
+Spring Boot:
+1.	Framework used to develop and deploy web services (REST endpoints) using very light 	weight dependencies!
+2. 	Deployment is very easy! JAR executable comes with embedded Tomcat! Production time is 	very less!
+3.	Works seamless with containers (Docker) and clusters (Kubernetes)
+4. 	Minimum configuration.
+5.	NO XML configuration!
+
+
+Why REST?
+1. https://raygun.com/blog/soap-vs-rest-vs-json/
+
