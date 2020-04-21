@@ -36,4 +36,9 @@ public class FriendsRestController {
 		return friends;
 	}
 
+	@RequestMapping("/get/check")
+	public String checkmethod() {
+		return "Check Ok!!!";
+	}
+	
 }
