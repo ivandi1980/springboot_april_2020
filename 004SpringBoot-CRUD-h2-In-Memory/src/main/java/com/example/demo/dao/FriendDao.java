@@ -3,6 +3,7 @@ package com.example.demo.dao;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -42,21 +43,57 @@ public class FriendDao {
 		
 	}
 
-	public Friend getFriendById(Integer id) {
+	public FriendEntity getFriendById(Integer id) {
 		
-		return null;
+		 Optional<FriendEntity> optionalFriendEntity =  friendRepository.findById(id);
+		 if(optionalFriendEntity.isPresent()) {
+			 return optionalFriendEntity.get();
+		 }
+		 return null;
 		
 		
 	}
 
-	public Friend updateFriendById(Integer id, Friend friend) {
+	public FriendEntity updateFriendById(Integer id, Friend friend) {
+		
+		Optional<FriendEntity> optionalFriendEntity = friendRepository.findById(id);
+		
+		if(optionalFriendEntity.isPresent()) {
+			FriendEntity tempFe = optionalFriendEntity.get();
+			if(friend.getName() != null) {
+				tempFe.setName(friend.getName());
+			}
+			if(friend.getLocation()!=null) {
+				tempFe.setLocation(friend.getLocation());
+			}
+			friendRepository.saveAndFlush(tempFe);
+			return friendRepository.findById(id).get();
+		}
+		
 			
 		return null;
 	}
 
-	public List<Friend> deleteFriendById(Integer id) {
+	public List<FriendEntity> deleteFriendById(Integer id) {
 		
+		Optional<FriendEntity> optionalFriendEntity = friendRepository.findById(id);
+		if(optionalFriendEntity.isPresent()) {
+			friendRepository.deleteById(id);
+			return friendRepository.findAll();
+		}
 		return null;
+	}
+
+
+	public List<FriendEntity> getFriendByName(String name) {
+		// TODO Auto-generated method stub
+		return friendRepository.findByName(name);
+	}
+
+
+	public List<FriendEntity> getFriendByNameSubString(String name) {
+		// TODO Auto-generated method stub
+		return friendRepository.findByNameSubString(name);
 	}
 
 }

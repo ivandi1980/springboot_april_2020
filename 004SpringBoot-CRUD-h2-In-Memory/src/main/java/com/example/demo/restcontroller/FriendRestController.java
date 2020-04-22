@@ -40,7 +40,7 @@ public class FriendRestController {
 	
 	//update friend by id
 	@PutMapping("/friend/update/{id}")
-	public Friend updateFriendById(@PathVariable Integer id, @RequestBody Friend friend) {
+	public FriendEntity updateFriendById(@PathVariable Integer id, @RequestBody Friend friend) {
 		System.out.println("Update friend with id: "  + id + " with new data: Name: " + friend.getName()) ;
 		return friendService.updateFriendById(id, friend);
 		
@@ -49,16 +49,26 @@ public class FriendRestController {
 	
 	//delete friend by id
 	@DeleteMapping("/friend/delete/{id}")
-	public List<Friend> deleteFriendById(@PathVariable Integer id) {
+	public List<FriendEntity> deleteFriendById(@PathVariable Integer id) {
 		System.out.println( "Delete friend with id: "  + id ) ;
 		return friendService.deleteFriendById(id);
 	}
 	
 	//get friend by id
 	@GetMapping("/friend/get/{id}")
-	public Friend getFriendById(@PathVariable Integer id) {
+	public FriendEntity getFriendById(@PathVariable Integer id) {
 		System.out.println( "Get friend with ID: " + id);
 		return friendService.getFriendById(id);
+	}
+	
+	@GetMapping("/friend/get/name/{name}")
+	public List<FriendEntity> getFriendByName(@PathVariable String name){
+		return friendService.getFriendByName(name);
+	}
+	
+	@GetMapping("/friend/get/namepartial/{name}")
+	public List<FriendEntity> getFriendByNameSubString(@PathVariable String name){
+		return friendService.getFriendByNameSubString(name);
 	}
 
 }

@@ -26,21 +26,33 @@ public class FriendService {
 	}
 
 
-	public Friend getFriendById(Integer id) {
+	public FriendEntity getFriendById(Integer id) {
 		// TODO Auto-generated method stub
 		return friendDao.getFriendById(id);
 	}
 
 
-	public Friend updateFriendById(Integer id, Friend friend) {
+	public FriendEntity updateFriendById(Integer id, Friend friend) {
 		// TODO Auto-generated method stub
 		return friendDao.updateFriendById(id, friend);
 	}
 
 
-	public List<Friend> deleteFriendById(Integer id) {
+	public List<FriendEntity> deleteFriendById(Integer id) {
 		// TODO Auto-generated method stub
 		return friendDao.deleteFriendById(id);
+	}
+
+
+	public List<FriendEntity> getFriendByName(String name) {
+		// TODO Auto-generated method stub
+		return friendDao.getFriendByName(name);
+	}
+
+
+	public List<FriendEntity> getFriendByNameSubString(String name) {
+		// TODO Auto-generated method stub
+		return friendDao.getFriendByNameSubString(name);
 	}
 
 }
