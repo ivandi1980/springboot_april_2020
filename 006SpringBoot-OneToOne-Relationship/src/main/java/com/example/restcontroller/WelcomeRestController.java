@@ -23,17 +23,17 @@ public class WelcomeRestController {
 	public String welcome() {
 		
 		FriendEntity fe = new FriendEntity();
-		fe.setFirstName("OBB");
-		fe.setLastName("OMG");
+		fe.setFirstName("MLANN");
+		fe.setLastName("AI");
 	
 		FriendProfileEntity fpe = new FriendProfileEntity();
-		fpe.setLocation("Pata Nai");
+		fpe.setLocation("ChenNai");
 		fpe.setYears(8);
 		
 		fe.setFriendProfileEntity(fpe);
 		
 		friendProfileRepository.save(fpe);
-		friendRepository.save(fe);
+		friendRepository.saveAndFlush(fe);
 		
 		
 		return "Hello from One to One!!!!Saved!!!!";
