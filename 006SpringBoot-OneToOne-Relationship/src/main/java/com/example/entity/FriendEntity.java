@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +26,11 @@ public class FriendEntity {
 	private String lastName;
 	
 	@OneToOne
-	@JoinColumn(name =  "profile_id")
+	//@JoinColumn(name =  "profile_id")
+	@JoinColumns({
+		@JoinColumn(name = "profile_id", referencedColumnName = "profile_id"),
+		@JoinColumn(name = "years", referencedColumnName ="years")
+	})
 	private FriendProfileEntity friendProfileEntity;
 	
 	
