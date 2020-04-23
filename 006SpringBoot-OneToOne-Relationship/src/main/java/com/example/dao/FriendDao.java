@@ -41,6 +41,8 @@ public class FriendDao {
 		
 		friendRepository.save(fe);
 		
+		//List<FriendEntity> fel = friendRepository.findAll();
+		
 		return friendRepository.findAll();
 		
 		
