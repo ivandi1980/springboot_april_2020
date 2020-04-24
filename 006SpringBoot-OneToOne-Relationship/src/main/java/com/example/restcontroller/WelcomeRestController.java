@@ -3,6 +3,7 @@ package com.example.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,9 +42,31 @@ public class WelcomeRestController {
 	//List<FriendEntity>
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	//@PostMapping("/add")
-	public List<FriendEntity> addFriend(@RequestBody Friend friend) {
+	public List<Friend> addFriend(@RequestBody Friend friend) {
 		return friendService.addFriend(friend);
 	}
+	
+	@RequestMapping("/all")
+	public List<Friend> getAllFriends(){
+		return friendService.getAllFriends();
+	}
+	
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+	public Friend updateFriend(@PathVariable Integer id, @RequestBody Friend friend) {
+		return friendService.updateFriend(id, friend);
+	}
+	
+	
+	@RequestMapping (value = "/update/{id}", method = RequestMethod.PATCH)
+	public Friend updateFriendPatch(@PathVariable Integer id, @RequestBody Friend friend) {
+		return friendService.updateFriendPatch(id, friend);
+	}
+	
+	@RequestMapping (value = "/delete/{id}", method = RequestMethod.DELETE)
+	public Friend deleteFriend(@PathVariable Integer id) {
+		return friendService.deleteFriend(id);
+	}
+	
 	
 	
 }

@@ -15,9 +15,29 @@ public class FriendService {
 	@Autowired
 	private FriendDao friendDao;
 
-	public List<FriendEntity> addFriend(Friend friend) {
+	public List<Friend> addFriend(Friend friend) {
 		// TODO Auto-generated method stub
 		return friendDao.addFriend(friend);
+	}
+
+	public List<Friend> getAllFriends() {
+		// TODO Auto-generated method stub
+		return friendDao.getAllFriends();
+	}
+
+	public Friend updateFriend(Integer id, Friend friend) {
+		// TODO Auto-generated method stub
+		return friendDao.updateFriend(id, friend);
+	}
+
+	public Friend updateFriendPatch(Integer id, Friend friend) {
+		// TODO Auto-generated method stub
+		return friendDao.updateFriendPatch(id, friend);
+	}
+
+	public Friend deleteFriend(Integer id) {
+		// TODO Auto-generated method stub
+		return friendDao.deleteFriend(id);
 	}
 
 }
